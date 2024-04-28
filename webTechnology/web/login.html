@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="center">
+          <h1>Sign Up</h1>
+          <form action="newlogins" method="POST">
+              <div class="txt_field">
+                  <input type="email" name="email" required>
+                  <span></span>
+                  <label>Email</label>
+              </div>
+<!--              <div class="txt_field">
+                  <select name="email">
+                      <option></option>
+                      <option>MASTERS</option>
+                      <option>PHD</option>
+                      <option>DOCTOR</option>
+                      <option></option>
+                  </select>-->
+<!--                  <span></span>
+                  <label>Qualification</label>
+              </div>-->
+              <div class="txt_field">
+                  <input type="password" name="password" required>
+                  <span></span>
+                  <label>Password</label>
+              </div>
+              
+              <input name="submit" type="Submit" value="Login">
+              <div class="signup_link">
+                  Already Registered ? <a href="login.html">Sign In</a>
+              </div>
+          </form>
+      </div>
+    </div>
+  </body>
+</html>

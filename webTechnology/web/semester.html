@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semesters</title>
+</head>
+<body>
+
+<h2>Semesters</h2>
+
+<form id="addSemesterForm">
+    <label for="semesterName">Semester Name:</label><br>
+    <input type="text" id="semesterName" name="semesterName"><br>
+    <button type="button" onclick="addSemester()">Add Semester</button>
+</form>
+
+<table id="semesterTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Semester rows will be added dynamically -->
+    </tbody>
+</table>
+
+<script>
+    function addSemester() {
+        var form = document.getElementById("addSemesterForm");
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "semesters", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                alert("Semester added successfully!");
+                // Refresh the table
+                loadSemesters();
+            } else {
+                alert("Failed to add semester. Please try again.");
+            }
+        };
+        xhr.send(formData);
+    }
+
+    function deleteSemester(semesterId) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", "semesters?semesterId=" + semesterId, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                alert("Semester deleted successfully!");
+                // Refresh the table
+                loadSemesters();
+            } else {
+                alert("Failed to delete semester. Please try again.");
+            }
+        };
+        xhr.send();
+    }
+
+    function updateSemester(semesterId) {
+        var newSemesterName = prompt("Enter new name for the semester:");
+        if (newSemesterName !== null) {
+            var semesterData = {
+                semesterId: semesterId,
+                semesterName: newSemesterName
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("PUT", "semesters", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert("Semester updated successfully!");
+                    // Refresh the table
+                    loadSemesters();
+                } else {
+                    alert("Failed to update semester. Please try again.");
+                }
+            };
+            xhr.send(JSON.stringify(semesterData));
+        }
+    }
+
+    function loadSemesters() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "semesters", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var semesters = JSON.parse(xhr.responseText);
+                var tableBody = document.querySelector("#semesterTable tbody");
+                tableBody.innerHTML = "";
+                semesters.forEach(function (semester) {
+                    var row = "<tr>" +
+                        "<td>" + semester.semesterId + "</td>" +
+                        "<td>" + semester.semesterName + "</td>" +
+                        "<td>" +
+                        "<button onclick='deleteSemester(" + semester.semesterId + ")'>Delete</button>" +
+                        "<button onclick='updateSemester(" + semester.semesterId + ")'>Update</button>" +
+                        "</td>" +
+                        "</tr>";
+                    tableBody.innerHTML += row;
+                });
+            } else {
+                alert("Failed to fetch semesters. Please try again.");
+            }
+        };
+        xhr.send();
+    }
+
+    // Load semesters when the page loads
+    window.onload = function () {
+        loadSemesters();
+    };
+</script>
+
+</body>
+</html>

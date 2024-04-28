@@ -1,0 +1,45 @@
+
+/* Define button style */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Style links as buttons */
+a.button {
+  text-decoration: none;
+}
+
+/* Style table */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style table header */
+.course-table th {
+  background-color: #464a4f; /* Green */
+  color: white;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Define even and odd row styles */
+.even-row {
+  background-color: #f2f2f2; /* Light gray */
+}
+
+.odd-row {
+  background-color: #ffffff; /* White */
+}
+
+

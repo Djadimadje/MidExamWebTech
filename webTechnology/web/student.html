@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUCA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        <a href="index.html" >
+            <h1 style="color: white;"><img src="images/crop.png"style="width: 300px;"></h1>
+            
+        </a>
+        </div>
+            <br>
+        <div class="navBar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shopByCategory.html">About</a></li>
+                <li><a href="service.html">Admissions</a></li>
+                <li>
+                <a href="resources.html">Academics</a>  
+                <ul class="submenu">
+                    <li><a href="#">Undergraduate</a></li>
+                    <li><a href="#">PostGraduate</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                </ul>
+                </li>
+                <li><a href="contact.html">Media Center</a>
+                </li>
+                <li><a href="AboutUs.html">Research</a></li>
+                <li><a href="addStudent.html">Crud</a></li>
+            </ul>
+        </nav>
+        </div>
+        
+    </header>
+    <main>
+        
+        <div class="main">
+       <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="images/downloads.png" alt="sing up image"></figure>
+                        
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">New Student</h2>
+                        <form method="POST" action="NewStudent" class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label for="student Id"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="stId" id="your_name" placeholder="Student Id"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="fname" id="your_name" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="text" name="lname" id="your_pass" placeholder="Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Dob"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="date" name="dob" id="your_pass" placeholder="Date of Birth"/>
+                            </div>
+                           
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+       
+    </main>
+    <footer>
+        <p>&copy; auca Gishushu Campus</p>
+    </footer>
+</body>
+</html>

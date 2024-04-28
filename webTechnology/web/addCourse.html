@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Course</title>
+</head>
+<body>
+
+<h2>Add Course</h2>
+
+<form id="addCourseForm">
+    <label for="ccode">Course Code:</label><br>
+    <input type="text" id="ccode" name="ccode"><br>
+    
+    <label for="cname">Course Name:</label><br>
+    <input type="text" id="cname" name="cname"><br>
+    
+    <label for="semId">Semester ID:</label><br>
+    <input type="text" id="semId" name="semId"><br>
+    
+    <button type="button" onclick="addCourse()">Add Course</button>
+</form>
+
+<script>
+    function addCourse() {
+        var form = document.getElementById("addCourseForm");
+        var formData = new FormData(form);
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "addCourse", true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                alert("Course added successfully!");
+                // Redirect to displayCourses page
+                window.location.href = "displayCourses";
+            } else {
+                alert("Failed to add course. Please try again.");
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+
+</body>
+</html>
